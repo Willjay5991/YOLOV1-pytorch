@@ -8,6 +8,6 @@
 test.m
 
 ## dataset
-./data/allImage-voc2007-2012/*
+data/allImage-voc2007-2012/
 
 
