@@ -1,0 +1,13 @@
+#################### for matlab ################
+
+## compressed file
+*.zip
+*.7z
+
+## test code
+test.m
+
+## dataset
+./data/allImage-voc2007-2012/*
+
+
