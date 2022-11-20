@@ -1,5 +1,3 @@
-#################### for matlab ################
-
 ## compressed file
 *.zip
 *.7z
@@ -9,5 +7,11 @@ test.m
 
 ## dataset
 data/allImage-voc2007-2012/
+
+## mdl
+bestmodel/*.pth
+
+## log
+*.log
 
 
