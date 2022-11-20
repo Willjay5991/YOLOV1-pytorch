@@ -12,9 +12,34 @@
 ### 数据集准备
 
 - 我们这里使用 voc2007, voc2012 两个数据集，可以通过链接[Pascal VOC Dataset Mirror (pjreddie.com)](https://pjreddie.com/projects/pascal-voc-dataset-mirror/) 下载
+
+  **在这个实验中我们只需要 下载三个文件，下面时文件对应的下载链接以及他们解压后我们使用到的数据**
+
+  ---
+
+  ​	[Voc2007 Train/Validation Data (439 MB) (pjreddie.com)](http://pjreddie.com/media/files/VOCtrainval_06-Nov-2007.tar)
+
+  - voc2007tra: ` voc2007/VOCtrainval_06-Nov-2007/VOCdevkit/VOC2007/JPEGImages`
+
+  - voc2007traAnnotation: ` voc2007/VOCtrainval_06-Nov-2007/VOCdevkit/VOC2007/Annotations`
+
+    [Voc2007 Test Data With Annotations (431 MB) (pjreddie.com)](http://pjreddie.com/media/files/VOCtest_06-Nov-2007.tar)
+
+  - voc2007tes: ` voc2007/VOCtest_06-Nov-2007/VOCdevkit/VOC2007/JPEGImages`
+
+  - voc2007tesAnnotation: ` voc2007/VOCtest_06-Nov-2007/VOCdevkit/VOC2007/Annotations`
+
+    [voc2012 Train/Validation Data (1.9 GB) (pjreddie.com)](http://pjreddie.com/media/files/VOCtrainval_11-May-2012.tar)， 
+
+  - voc2012tra: ` voc2012/VOCtrainval_11-May-2012/VOCdevkit/VOC2012/JPEGImages`
+
+  - voc2012traAnnotation: ` voc2012/VOCtrainval_11-May-2012/VOCdevkit/VOC2012/Annotations`
+
 - 数据的预处理
   - 使用 ` ./data/preData.py` 把voc2007tra， voc2007test，voc2012tra的所有图片放置到同一个文件夹` ./data/allImage-voc2007-2012`中
   - 使用` python ./data/generateLabeledData.py` 读取每个图片的类别标记，方框的四个坐标 ` xmin,ymin,xmax,ymax`, 写入` voc2007.txt`等文件中
+  - 注意：
+    1. 根据你下载的数据集所在的路径修改这两个代码中的数据集的路径
 
 
 
@@ -36,6 +61,8 @@ visdom==0.2.3
 - Run `python train.py`
 
 - *Be careful:* 1. change the image file path 2. I recommend you install [visdom](https://github.com/facebookresearch/visdom) and run it
+
+- **训练时间说明**：我使用一块tesla V100c跑 50 epoch耗时4小时左右 
 
 ### 预测自定义图片
 
