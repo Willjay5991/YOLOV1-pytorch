@@ -1,14 +1,13 @@
 ## ReadMe
 
-## 说明
+### 说明
 
-YOLOV1的pytorch实现
+- YOLOV1的pytorch实现，
+- 这个仓库中的代码主要来自[仓库](https://github.com/abeardear/pytorch-YOLO-v1)
 
+- 这里只调整了其中的一些由于torch版本兼容问题的一些bug，并且提供了数据的下载链接，数据处理代码。
 
-
-- [原仓库地址]([abeardear/pytorch-YOLO-v1: an experiment for yolo-v1, including training and testing. (github.com)](https://github.com/abeardear/pytorch-YOLO-v1))
-
-
+- [论文](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Redmon_You_Only_Look_CVPR_2016_paper.pdf)
 
 ### 数据集准备
 
@@ -59,21 +58,26 @@ visdom==0.2.3
   - `python preData.py`  把voc2007tra， voc2007test， voc2012tra 的图片放置在同一个文件夹下 ` allImage-voc2007-2012`
   - `python generateLabeledData.py` 读取voc2007，voc2012的目标框标记信息到对应的txt文件中
 
-- 我们修改了预测函数：` predict_images.py`
+- 我们修改了预测函数
+  - 预测同时预测多张图片：` python predict_images.py`
+    - 把待预测的图片放入文件夹中` ./testImages` 
+    - 运行 ` python predict_images.py`
+    - 就会自动加载已经训练好的模型，预测这些图片，并把对应的预测结果放置到` ./predImages` 中
+  - 预测单张图片中的目标 ` python predict.py` ,修改文件中对应图片的路径
 
-  - 把待预测的图片放入文件夹中` ./testImages` 
-  - 运行 ` python predict_images.py`
-  - 就会自动加载已经训练好的模型，预测这些图片，并把对应的预测结果放置到` ./predImages` 中
+- 修改了一些由于torch版本间不兼容问题造成的报错
 
-- 预测单张图片中的目标 ` python predict.py` ,修改文件中对应图片的路径
+
+
+### TODO
 
 - 把修改后的版本上传仓库
 
   - [x] 记得注明原仓库的出处
-  
+
   - [x] 记得ignore数据文件
-  
+
   - [x] 上传我们训练了50个epoch的模型 ` ./best.pth`
   - [x] 生成环境依赖文件
-  
+
   
